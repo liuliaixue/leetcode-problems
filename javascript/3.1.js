@@ -3,14 +3,13 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function(s) {
-  const len = s.length;
   let length = 0;
 
   let left = 0;
   const repeat = new Set();
 
-  for (let right = left; right < len; right++) {
-    console.log(left, right);
+  for (let right = left; right < s.length; right++) {
+    // console.log(left, right);
     while (repeat.has(s[right])) {
       repeat.delete(s[left]);
       left = left + 1;
@@ -19,7 +18,7 @@ var lengthOfLongestSubstring = function(s) {
     length = right - left + 1 > length ? right - left + 1 : length;
   }
 
-  console.log({ length });
+  // console.log({ length });
   return length;
 };
 
