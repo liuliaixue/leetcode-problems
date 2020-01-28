@@ -15,9 +15,11 @@ var convert = function(s, numRows) {
   const indexMap = (cycleIndex, nIndex) => {
     if (cycleIndex > 0) {
       if (nIndex === 0 || nIndex === numRows - 1)
-        return indexMap(cycleIndex - 1, nIndex) + 1;
+        // return indexMap(cycleIndex - 1, nIndex) + 1;
+        return indexMap(0, nIndex) + cycleIndex;
       else {
-        return indexMap(cycleIndex - 1, nIndex) + 2;
+        // return indexMap(cycleIndex - 1, nIndex) + 2;
+        return indexMap(0, nIndex) + 2 * cycleIndex;
       }
     }
 
@@ -53,4 +55,4 @@ var convert = function(s, numRows) {
 // convert("0123456789ABCDEFGHI", 4);
 
 // convert("PAYPALISHIRING", 3);
-convert("A", 1);
+// convert("A", 1);
